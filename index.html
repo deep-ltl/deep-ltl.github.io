@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DeepLTL: Reinforcement Learning for Formal Task Execution</title>
+    <title>DeepLTL: Learning to Efficiently Satisfy Complex LTL Specifications for Multi-Task RL</title>
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
     <div class="header">
         <h1><b>DeepLTL</b></h1>
         <h2>Learning to Efficiently Satisfy Complex LTL Specifications for Multi-Task RL</h2>
-        <p>Mathias Jackermeier, Alessandro Abate <br />
+        <p class="authors">Mathias Jackermeier,<br class="wide-hidden" /> Alessandro Abate <br />
             University of Oxford</p>
         <p>ICLR 2025 (Oral)</p>
         <div class="links">
@@ -50,28 +50,58 @@
     <div class="section">
         <div class="content">
             <h2>DeepLTL</h2>
-            <div class="image">
-                <img src="images/overview.png" alt="Example diagram">
+            <div class="image overview">
+                <img src="images/overview.png" alt="Schematic overview of DeepLTL">
             </div>
             <div class="text">
                 <p>
-                    We propose a novel reinforcement learning pipeline where agents learn to follow logical
-                    constraints
-                    without explicit supervision. Unlike traditional methods that rely on perfect event detectors,
-                    DeepLTL incorporates vision-language models (VLMs) to interpret state information, ensuring
-                    robust
-                    task execution in real-world settings.
-                </p>
-                <p>
-                    By leveraging an ensemble of VLMs for uncertainty estimation, our approach dynamically refines
-                    its
-                    belief over time. This results in a system that gracefully handles noise and ambiguous
-                    observations
-                    while maintaining strong generalization to new LTL specifications.
+                    We develop a novel approach, called <i>DeepLTL</i>, to learn policies that efficiently zero-shot satisfy complex LTL specifications.
+                    We first employ goal-conditioned RL to learn a general policy that can execute reach-avoid sequences of high-level propositions, such as "reach goal A while avoiding region B, and subsequently stay in region C". At test time, we first translate a given LTL specification into a limit-deterministic Büchi automaton (LDBA), from which we extract possible reach-avoid sequences that satisfy the formula. We select the optimal sequence according to the learned value function, and execute it with the trained policy.
                 </p>
             </div>
         </div>
     </div>
+
+    <div class="fade-line">
+        <div class="fill"></div>
+        <div class="line"></div>
+        <div class="fill"></div>
+    </div>
+
+    <div class="section">
+        <div class="content">
+            <h2>Quantitative results</h2>
+            <div class="image">
+                <img src="images/curves.png" alt="Schematic overview of DeepLTL">
+            </div>
+            <div class="text">
+                <p>
+                    We find that DeepLTL is able to efficiently zero-shot satisfy a wide range of finite- and infinite-horizon LTL specifications in a variety of discrete and continuous domains. Our approach outperforms existing methods in terms of both satisfaction probability and efficiency.
+                </p>
+        </div>
+    </div>
+
+    <!-- <div class="fade-line">
+        <div class="fill"></div>
+        <div class="line"></div>
+        <div class="fill"></div>
+    </div>
+
+    <div class="section">
+        <div class="content">
+            <h2>Qualitative results</h2>
+            <div class="image">
+                <video autoplay muted loop>
+                    <source src="images/output.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="text">
+                <p>
+                    We demonstrate the performance of DeepLTL in a variety of environments, including a gridworld, a 2D continuous environment, and a 3D continuous environment. In each case, DeepLTL is able to efficiently satisfy complex LTL specifications, such as "reach goal A while avoiding region B, and subsequently stay in region C".
+                </p>
+        </div> -->
+
+    <!-- TODO: citation section -->
 
 </body>
 
