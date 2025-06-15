@@ -22,7 +22,7 @@ header {
     background-color: #197bdd;
     background-attachment: fixed;
     color: #eee;
-    min-height: 75vh;
+    min-height: 80vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -35,7 +35,7 @@ header>.content {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 50px 0;
+    margin-top: 180px;
 }
 
 header {
@@ -141,6 +141,28 @@ header .links > .separator {
 
 .pdf {
     background-image: url("images/pdf.svg");
+}
+
+.tldr {
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    background-color: #fdfdfddd;
+    width: 100%;
+    color: #333;
+    margin-top: auto;
+}
+
+.tldr > p {
+    max-width: 1000px;
+    width: 100%;
+    font-size: 16pt;
+    padding: 0 40px;
+    box-sizing: border-box;
 }
 
 main {
@@ -333,9 +355,12 @@ footer .content a {
 @media (max-width: 1000px) {
     header {
         position: relative;
-        padding: 30px;
         width: auto;
         min-height: 100dvh;
+    }
+
+    header > .content {
+        padding: 30px;
     }
 
     header h1 {
@@ -360,6 +385,12 @@ footer .content a {
 
     .wide-hidden {
         display: block;
+    }
+
+    .tldr > p {
+        padding-left: 40px;
+        padding-right: 40px;
+        box-sizing: border-box;
     }
 
     hr {
